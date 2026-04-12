@@ -3,25 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page Title</title>
+    
+    <title>ABCD Pokedéx</title>
+
     <link rel="stylesheet" href="styles.css" />
   </head>
+
   <body>
-    <h1>Welcome to the pokidix</h1>
-    <select id="GenerationList">
-        <option value="1">Gen 1</option>
-        <option value="2">Gen 2</option>
-        <option value="3">Gen 3</option>
-        <option value="4">Gen 4</option>
-        <option value="5">Gen 5</option>
-        <option value="6">Gen 6</option>
-        <option value="7">Gen 7</option>
-        <option value="8">Gen 8</option>
-        <option value="9">Gen 9</option>
-    </select>
-    <button onclick="takeValueFromOptions()">Get pokemon list</button>
-    <ul id="List">List of pokemon</ul>
-    <ol id="OrderedList"></ol>
+    
+    <main>
+      <div id="pokedex-choose-panel" class="panels">
+        <h1 id="main-title">Welcome to the Pokédex</h1>
+        
+        <div id="select-pokemon">
+          <select id="generation-list">
+              <option value="1">Gen 1</option>
+              <option value="2">Gen 2</option>
+              <option value="3">Gen 3</option>
+              <option value="4">Gen 4</option>
+              <option value="5">Gen 5</option>
+              <option value="6">Gen 6</option>
+              <option value="7">Gen 7</option>
+              <option value="8">Gen 8</option>
+              <option value="9">Gen 9</option>
+          </select>
+      
+          <button id="select-button" onclick="takeValueFromOptions()">Get pokemon list</button>
+        </div>
+        
+        <ul id="initial-display">List of pokemon</ul>
+        <ol id="pokemon-list"></ol>
+      </div>
+      
+      <div id="pokedex-display-panel" class="panels">
+        <div id="poke-detail">
+          <div id="detail-view">
+            <p id="detail-placeholder"></p>
+          </div>
+        </div>
+      </div>
+
+    </main>
+    
+
+
+    <!-- SCRIPT BLOCK -->
+    <script src="./render.js"></script>
     <script src="apigamer.js"></script>
   </body>
+
 </html>

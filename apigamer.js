@@ -1,12 +1,12 @@
 function takeValueFromOptions() {
-  const value = document.getElementById("GenerationList").value;
+  const value = document.getElementById("generation-list").value;
   getPokemonList(value);
 }
 
 async function getPokemonList(generationID) {
   const generationIDStr = String(generationID);
-  const pokemonDisplay = document.getElementById("OrderedList");
-  const regionDisplay = document.getElementById("List");
+  const pokemonDisplay = document.getElementById("pokemon-list");
+  const regionDisplay = document.getElementById("initial-display");
   regionDisplay.innerHTML = "Loading...";
 
   try {
@@ -23,19 +23,9 @@ async function getPokemonList(generationID) {
     const pokemanesList = gen.pokemon_species;
     const pokemanes = await fetchPokemon(pokemanesList);
 
-    const listItems = pokemanes
-      .map(
-        (pokeman) =>
-          `<strong><li>${pokeman.name}</li></strong>
-        <img src=${pokeman.sprites.front_default}></img>
-        <p>Types:${pokeman.types.map((t) => t.type.name)}</p>
-        <p>Abilities:${pokeman.abilities.map((a) => a.ability.name)}</p>
-        <p>Pokedex Entry Number: ${pokeman.id}</p>`,
-      )
-      .join("");
+    regionDisplay.innerHTML = `<li><strong>Region: ${generationPlace.toUpperCase()}</strong></li>`
+    renderList(pokemanes, pokemonDisplay)
 
-    regionDisplay.innerHTML = `<li><strong>Region: ${generationPlace.toUpperCase()}</strong></li>`;
-    pokemonDisplay.innerHTML = `${listItems}`;
   } catch (error) {
     console.error("Failed:", error);
     regionDisplay.innerHTML = "<li>Failed to load pokemon list.</li>";
