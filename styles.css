@@ -22,6 +22,11 @@ main {
     box-sizing: border-box;
 }
 
+/* SMALL ICONS */
+.small-icons{
+    width: 10px;
+}
+
 /* PANELS */
 .panels {
     display: flex;
@@ -47,6 +52,37 @@ main {
     flex: 2;
 }
 
+#initial-display{
+    align-self: center;
+}
+
+#pokemon-list{
+    align-items: center;
+}
+#pokemon-list :nth-child(n){
+    background-color: #1a1a2e;
+    width: 50%;
+    height: auto;
+    cursor: pointer;
+}
+#pokemon-list :hover,
+#pokemon-list :nth-child(n):hover *{
+    background-color: #1e1edd;
+}
+
+.poke-name {
+    text-wrap: nowrap;
+    font-size: large;
+    align-self: center;
+}
+.poke-num {
+    font-size: 24px;
+}
+.pokemon-item {
+    overflow: y;
+    text-align: center;
+}
+
 #main-title {
     margin-bottom: 10px;
     letter-spacing: 2px;
@@ -57,6 +93,17 @@ main {
     display: flex;
     flex-direction: row;
     gap: 10px;
+}
+
+#search-bar{
+    display: flex;
+    align-self: center;
+    height: 30px;
+    width: 50%;
+}
+
+#search-input{
+    width: 100%;
 }
 
 #generation-list {
@@ -105,4 +152,24 @@ main {
 #pokemon-list::-webkit-scrollbar-thumb {
     background: #444;
     border-radius: 3px;
+}
+
+#detail-content{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+}
+
+.stat-row :nth-child(n){
+    height:10px;
+}
+
+.stat-bar-bg{
+    background: red;
+}
+
+.stat-bar-fill{
+    background: green;
+    z-index: 1;
 }
