@@ -48,7 +48,8 @@ async function searchPokemon() {
   }
 
   const matchedPokemons = await fetchPokemon(matches);
-  displayLabel.innerHTML = `${matches.length} Matches Found!`;
+  const text = matches.length == 1 ? "Match" : "Matches";
+  displayLabel.innerHTML = `${matches.length} ${text} Found!`;
   renderList(matchedPokemons, pokemonDisplay);
 }
 
